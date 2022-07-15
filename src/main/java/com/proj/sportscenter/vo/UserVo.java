@@ -23,6 +23,8 @@ public class UserVo {
 	private String password;
 	private String phone;
 	private String gender;
+	
+	
 	private LocalDateTime regDate;
 	
 }
