@@ -1,0 +1,52 @@
+#content-wrap {
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 20px;
+    padding: 30px;
+}
+
+
+#content-wrap form {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+#content-wrap form p {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+}
+
+#content-wrap form p.p-label {
+    justify-content: start;
+    margin-top: 10px;
+}
+
+.p-label::before {
+    content: "·";
+    position: relative;
+    left: -10px;
+}
+
+#content-wrap form p input {
+    border: none;
+    border-bottom: 1px solid #000;
+    height: 25px;
+}
+
+input#gender {
+    margin: 0 3px;
+}
+
+.p-label button.button {
+    padding: 3px 7px;
+    margin-left: 5px;
+}
+
+input.button {
+    margin-top: 30px;
+    padding: 10px 50px;
+    align-self: center;
+}
