@@ -19,9 +19,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-    @GetMapping(value = "/login")
+    @GetMapping(value = "/signin")
     public String viewLoginPage() throws Exception {
-        return "login";
+        return "signin";
     }
     
     
