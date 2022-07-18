@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>마이페이지</title>
+    <link rel="stylesheet" href="./assets/css/public.css">
+    <style>
+        html, body {margin: 0; padding: 0;}
+        #wrap {width: 100%; color: #fff; font-size: 30px; text-align: center;}
+        #header-wrap {width: 100%; background-color: rgb(40, 40, 40); }
+        #banner-wrap {width: 100%; background-color: rgba(0, 0, 0, 0.774);} /* rgba:색깔, 투명도 조절 */
+        #content-wrap { margin: 0 auto;width: 800px; display: flex; flex-direction: column; align-items: flex-start; padding: 120px 0;color: black;}
+        #footer-wrap {width: 100%; background-color: rgb(40, 40, 40);}
+
+        .header-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 100px; font-size: 15px;  font-weight: bold;}
+        /* font-weight:bold 글씨굵게, letter-spacing: 글자간격 조절 */
+        .banner-container {width: 1200px; margin: 0 auto; height : 250px; line-height: 250px;
+                           background-image: url(/assets/image/main.jpg); background-size: cover;
+                           font-size: 50px; font-weight: bold; letter-spacing : 5px;}
+        .content-container {width: 1200px; margin: 0 auto; height: 700px; line-height: 500px;
+                            background-color: rgb(245, 245, 245); overflow:hidden; height:auto;
+                        }
+        .footer-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 200%; color: rgb(192, 192, 192); font-size: 15px; text-align: left;}
+        ul li {list-style: none; display: inline; margin-left: 20px;cursor: pointer;}
+        .tab1 {float: left; width: 30%; margin: 0}
+        .tab2 {float: right; width: 20%; margin: 0}
+        
+        .input {
+            border: none;
+            border-bottom: 1px solid rgb(100, 100, 100);
+            padding: 16px 12px;
+            width: 300px;
+        }
+        ul .li {
+            list-style: disc;
+            margin: 0;
+            display: list-item;
+            color: black;
+            font-size: 20px;
+            background: white;
+        }
+        span {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header-wrap">
+            <div class="header-container">
+                <ul class="tab1">
+                    <li onclick="javascript: window.location.href = './main.html';">홈</li>
+                    <li onclick="javascript: window.location.href = './intro.html';">프로그램 소개</li>
+                    <li onclick="javascript: window.location.href = './notice.html';">공지사항</li>
+                    <li onclick="javascript: window.location.href = './qna.html';">Q&A</li>
+                    <li onclick="javascript: window.location.href = './review.html';">후기</li>
+                  </ul>
+                  <ul class="tab2">
+                    <li onclick="javascript: window.location.href = './signin.html';">로그인</li>
+                    <li onclick="javascript: window.location.href = './signup.html';">회원가입</li>
+                  </ul>
+            </div>
+        </div>
+        <div id="banner-wrap">
+            <div class="banner-container">마이페이지</div>
+        </div>
+        <div id="content-wrap">
+            <!--내 정보-->
+            <div style="width: 100%; display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h5>내 정보</h5>
+                    <button onclick="submit3()" class="button">저장하기</button>
+                </div>
+                <div style="display: flex; align-items: center; gap: 200px">
+                    <div style="display: flex; flex-direction: column;">
+                        <ul>
+                            <li class="li">이름</li>
+                        </ul>
+                        <span>양지우</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <ul>
+                            <li class="li">아이디</li>
+                        </ul>
+                        <span>qwer</span>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 200px">
+                    <div style="display: flex; flex-direction: column;">
+                        <ul>
+                            <li class="li">전화번호</li>
+                        </ul>
+                        <span>010-1234-1234</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <ul>
+                            <li class="li">비밀번호</li>
+                        </ul>
+                        <span>●●●●●●●●</span>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 200px">
+                    <div style="display: flex; flex-direction: column;">
+                        <ul>
+                            <li class="li">성별</li>
+                        </ul>
+                        <span>여자</span>                        
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!--프로그램 정보-->
+            <hr style="border:1px color= silver;" width="100%">   
+            <div style="width: 100%; display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h5>프로그램 정보</h5>
+                    <button onclick="submit4()" class="button">취소하기</button>
+                </div>
+                <div style="display: flex; align-items: center; gap: 200px">
+                    <div style="display: flex; flex-direction: column;">
+                        <ul>
+                            <li class="li">프로그램명</li>
+                        </ul>
+                        <span>수영</span>
+                        <hr>                      
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 200px">
+                    <div style="display: flex; flex-direction: column;">
+                        <ul>
+                            <li class="li">강습 시간</li>
+                        </ul>
+                        <span>A(06:00 ~ 08:00)</span>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!--탈퇴하기-->
+            <hr style="border:1px color= silver;" width="100%">
+            <div style="width: 100%; display: flex; align-items: center; justify-content: space-between;">
+                <div></div>
+                <button onclick="submit5()" class="button">탈퇴하기</button>
+            </div>
+        </div>
+        <div id="footer-wrap">
+            <div class="footer-container">(가산교육장) 서울특별시 금천구 가산디지털1로 70 호서대벤처타워 2층 <br>
+                                           Tel. 123-456-789 | E-mail. kosmo@naver.com
+            </div>
+        </div>
+    </div>
+    <script>
+         function submit3() {
+            alert("저장되었습니다.");
+        }
+        async function submit4() {
+            if(confirm("취소하시겠습니까?")) {
+                alert("취소되었습니다.");
+            }
+        }
+        async function submit5() {
+            if(confirm("탈퇴하시겠습니까 ?")) {
+                alert("탈퇴되었습니다.");
+            }
+        }
+        function login(e) {
+            alert("환영합니다. 양지우 회원님 !\n회원가입이 완료되었습니다.");
+            return window.location.href = "./complete.html";
+        }
+    </script>
+</body>
+</html>
+<!-- 단락이 구분될 수 있도록 선넣어서 구분하기
+     비밀번호 변경하기?
+     버튼 크기랑 글씨 크기 키우기
+     alert 설정해야함-->

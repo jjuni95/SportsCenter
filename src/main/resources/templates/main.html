@@ -2,25 +2,27 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>layout05</title>
+    <title>떙떙 스포츠센터</title>
+    <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1c3701ed9ff347c6b09f7769de395c9c"></script>
     <style>
         * {margin: 0; padding: 0;}
         #wrap {width: 100%; color: #fff; font-size: 30px; text-align: center;}
         #header-wrap {width: 100%; background-color: rgb(40, 40, 40); }
         #banner-wrap {width: 100%; background-color: rgba(0, 0, 0, 0.774);} /* rgba:색깔, 투명도 조절 */
-        #content-wrap {width: 100%; background-color: rgba(245, 245, 245, 0.301);}
+        #content-wrap {width: 100%; background-color: rgba(245, 245, 245); display: flex; flex-direction: column; align-items: center; padding: 120px 0;color: black; position: relative;}
         #footer-wrap {width: 100%; background-color: rgb(40, 40, 40);}
 
         .header-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 100px; font-size: 15px;  font-weight: bold;}
         /* font-weight:bold 글씨굵게, letter-spacing: 글자간격 조절 */
         .banner-container {width: 1200px; margin: 0 auto; height : 600px; line-height: 600px;
-                           background-image: url(images/main.jpg); background-size: cover;
+                           background-image: url(/assets/image/main.jpg); background-size: cover;
                            font-size: 90px; font-weight: bold; letter-spacing : 5px;}
         .content-container {width: 1200px; margin: 0 auto; height: 700px; line-height: 500px;
                             background-color: rgb(245, 245, 245); overflow:hidden; height:auto;}
         .footer-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 200%; color: rgb(192, 192, 192); font-size: 15px; text-align: left;}
-        ul li {list-style: none; display: inline; margin-left: 20px;}
-        .tab1 {float: left; width: 35%; margin: 0}
+        ul li {list-style: none; display: inline; margin-left: 20px;cursor: pointer;}
+        .tab1 {float: left; width: 30%; margin: 0}
         .tab2 {float: right; width: 20%; margin: 0}
     </style>
 </head>
@@ -29,15 +31,15 @@
         <div id="header-wrap">
             <div class="header-container">
                 <ul class="tab1">
-                    <li>홈</li>
-                    <li>프로그램 소개</li>
-                    <li>공지사항</li>
-                    <li>Q&A</li>
-                    <li>후기</li>
+                    <li onclick="javascript: window.location.href = './main.html';">홈</li>
+                    <li onclick="javascript: window.location.href = './intro.html';">프로그램 소개</li>
+                    <li onclick="javascript: window.location.href = './notice.html';">공지사항</li>
+                    <li onclick="javascript: window.location.href = './qna.html';">Q&A</li>
+                    <li onclick="javascript: window.location.href = './review.html';">후기</li>
                   </ul>
                   <ul class="tab2">
-                    <li>로그인</li>
-                    <li>회원가입</li>
+                    <li onclick="javascript: window.location.href = './signin.html';">로그인</li>
+                    <li onclick="javascript: window.location.href = './signup.html';">회원가입</li>
                   </ul>
             </div>
         </div>
@@ -46,19 +48,67 @@
         </div>
         <div id="content-wrap">
             <span style="color: black" style="text-align: left">오시는 길</span>
+            <br>
             <div class="content-container">
-                <div style="font:normal normal 400 12px/normal dotum, sans-serif; width:900px; height:600px; color:#333; position:relative">
-                    <div style="height: 600px;"><a href="https://map.kakao.com/?urlX=474814.0&amp;urlY=1103592.0&amp;name=%EC%84%9C%EC%9A%B8%20%EA%B8%88%EC%B2%9C%EA%B5%AC%20%EA%B0%80%EC%82%B0%EB%94%94%EC%A7%80%ED%84%B81%EB%A1%9C%2070&amp;map_type=TYPE_MAP&amp;from=roughmap" target="_blank"><img class="map" src="http://t1.daumcdn.net/roughmap/imgmap/d394dbb5f68e99fcd4365a09133b5e33942d0aec7e409bdbe4c42c63e1fc6f8f" width="1198px" height="598px" style="border:1px solid #ccc;">
-                    </a>
-                </div>
-                <div style="overflow: hidden; padding: 7px 11px; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 0px 0px 2px 2px; background-color: rgb(249, 249, 249);"><a href="https://map.kakao.com" target="_blank" style="float: left;"><img src="//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/logo_kakaomap.png" width="72" height="16" alt="카카오맵" style="display:block;width:72px;height:16px"></a><div style="float: right; position: relative; top: 1px; font-size: 11px;"><a target="_blank" href="https://map.kakao.com/?from=roughmap&amp;eName=%EC%84%9C%EC%9A%B8%20%EA%B8%88%EC%B2%9C%EA%B5%AC%20%EA%B0%80%EC%82%B0%EB%94%94%EC%A7%80%ED%84%B81%EB%A1%9C%2070&amp;eX=474814.0&amp;eY=1103592.0" style="float:left;height:15px;padding-top:1px;line-height:15px;color:#000;text-decoration: none;">길찾기</a></div></div></div>
+                <div style="width: 1200px; height: 600px" id="map"></div>
             </div>
+            <button onclick="aclick()" style="position: absolute; top: 50%; right: 10%; transform: translateY(-50%); border: none; background: none; cursor: pointer;"><img width="60" src="./images/right-arrow.png"></button>
         </div>
         <div id="footer-wrap">
             <div class="footer-container">(가산교육장) 서울특별시 금천구 가산디지털1로 70 호서대벤처타워 2층 <br>
-                Tel. 123-456-789 | E-mail. kosmo@naver.com
+                                           Tel. 123-456-789 | E-mail. kosmo@naver.com
             </div>
         </div>
     </div>
+    <!-- 카카오 지도 -->
+    <script>
+        var markerPosition = new kakao.maps.LatLng(37.472197, 126.885953); 
+
+        var container = document.getElementById('map');
+        var options = {
+            center: markerPosition,
+            level: 3
+        };
+
+        var map = new kakao.maps.Map(container, options);
+
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
+        marker.setMap(map);
+    </script>
+    <script>
+        function aclick() {
+            document.getElementById("content-wrap").innerHTML = `
+                <h3 style="margin-bottom: 60px;">자주 묻는 질문</h3>
+                <div style="display: flex; gap: 200px;">
+                    <div style="font-size: 18px; display: flex; flex-direction: column; gap: 10px;">
+                        <div class="hello" style="padding: 24px 70px; background: white;">
+                            질문 입니다.
+                        </div>
+                        <div class="qwer" style="display: none; padding: 24px 70px; background: white;">
+                            답변입니다.
+                        </div>
+                    </div>
+                    <div style="font-size: 18px; display: flex; flex-direction: column; gap: 10px;">
+                        <div class="hello" style="padding: 24px 70px; background: white;">
+                            질문 입니다.
+                        </div>
+                        <div class="qwer" style="display: none; padding: 24px 70px; background: white;">
+                            답변입니다.
+                        </div>
+                    </div>
+                </div>
+            `;
+            [...document.getElementsByClassName("hello")].forEach((d, i) => {
+                d.addEventListener("click", () => {
+                    $([...document.getElementsByClassName("qwer")][i]).slideDown();
+                });
+            });
+        }
+    </script>
 </body>
 </html>
+<!-- 지도 생성
+     자주묻는 질문 생성 후 답변(버튼을 눌렀을 때 답변 창이 아래로 슬라이드형식으로 나오도록) -->

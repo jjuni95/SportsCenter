@@ -16,10 +16,10 @@ import lombok.ToString;
 @ToString
 
 public class NoticeVo {
-	private Long userNo; //관습상 long으로한다~.
-	private String userId;
-	private String userName;
+	private Long boardNo; //관습상 long으로한다~.
+	private String boardTitle;
+	private String boardContent;
+	private String boardWriter;
 	private LocalDateTime regDate;
-	private String noticeList;
-	private String noticeContent;
+	private LocalDateTime updateDate;
 }

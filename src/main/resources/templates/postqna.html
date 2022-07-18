@@ -20,18 +20,10 @@
         .content-container {width: 1200px; margin: 0 auto; height: 700px; line-height: 700px;
                             background-color: rgb(245, 245, 245); overflow:hidden; height:auto;
                         }
-        .footer-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 200%; color: rgb(192, 192, 192); font-size: 15px; text-align: left;}
+        .footer-container {width: 1000px; margin: 0 auto; height: 100px; line-height: 200%; color: rgb(192, 192, 192); font-size: 15px; text-align: left;}
         ul li {list-style: none; display: inline; margin-left: 20px;cursor: pointer;}
-        .tab1 {float: left; width: 35%; margin: 0}
+        .tab1 {float: left; width: 30%; margin: 0}
         .tab2 {float: right; width: 20%; margin: 0}
-        .button {
-            width: 300px;
-            border-radius: 8px;
-            padding: 14px 0;
-            color: white;
-            background: rgb(110, 110, 110);
-            margin-top: 130px;
-        }
         .input {
             border: none;
             border-bottom: 1px solid rgb(100, 100, 100);
@@ -90,28 +82,31 @@
         <div id="banner-wrap">
             <div class="banner-container">Q&A</div>
         </div>
-        <div id="content-wrap">
-            <div style="width: 100%; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; background: white; padding: 20px;">
-                <h5 style="padding-bottom: 20px;">Q. 질문</h5>
-                <textarea cols="30" rows="10" placeholder="답변을 입력해주세요"></textarea>
-            </div>
-            <div style="width: 100%; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; background: white; padding: 20px;">
-                <h5 style="padding-bottom: 20px;">A. 답변</h5>
-                <textarea cols="30" rows="10" placeholder="답변을 입력해주세요"></textarea>
-            </div>
+        <!-- 질문, 답변 textarea -->
+        <!-- form action 추후 추가 필요 -->
+        <form action="">
+            <div id="content-wrap">
+                <div style="width: 100%; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; background: white; padding: 20px;">
+                    <h5 style="padding-bottom: 20px;">Q. 질문</h5>
+                    <textarea cols="30" rows="10" placeholder="답변을 입력해주세요"></textarea>
+                </div>
+                <div style="width: 100%; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; background: white; padding: 20px;">
+                    <h5 style="padding-bottom: 20px;">A. 답변</h5>
+                    <textarea cols="30" rows="10" placeholder="답변을 입력해주세요"></textarea>
+                </div>
                 <div class="display: flex;">
                     <button onclick="submit()" class="button">저장하기</button>
                     <button onclick="submit2()" class="button">삭제하기</button>
                 </div>
             </div>
-        </div>
+        </form>
         <div id="footer-wrap">
             <div class="footer-container">(가산교육장) 서울특별시 금천구 가산디지털1로 70 호서대벤처타워 2층 <br>
                                            Tel. 123-456-789 | E-mail. kosmo@naver.com
             </div>
         </div>
     </div>
-    <script>
+    <!-- <script>
         function submit() {
             alert("저장되었습니다.");
             return window.location.href = "./qna.html";
@@ -122,7 +117,7 @@
                 return window.location.href = "./qna.html";
             }
         }
-    </script>
+    </script> -->
 </body>
 </html>
 <!-- 저장하기 삭제하기 버튼 가운데로 옮기기 -->

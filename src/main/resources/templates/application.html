@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Q&A</title>
+    <title>프로그램 신청</title>
     <link rel="stylesheet" href="./assets/css/public.css">
     <style>
         html, body {margin: 0; padding: 0;}
@@ -72,60 +72,67 @@
             </div>
         </div>
         <div id="banner-wrap">
-            <div class="banner-container">Q&A</div>
+            <div class="banner-container">프로그램 신청</div>
         </div>
         <div id="content-wrap">
             <div style="width: 100%; display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h5>원하시는 프로그램을 선택해주세요.</h5>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <label>
+                        <input type="radio" name="qwer">
+                        <span>수영</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="qwer">
+                        <span>휘트니스</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="qwer">
+                        <span>필라테스</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="qwer">
+                        <span>요가</span>
+                    </label>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h5>원하시는 시간을 선택해주세요.</h5>
+                </div>
                 <table>
                     <tr>
-                        <td>NO</td>
-                        <td>제목</td>
-                        <td>작성자</td>
-                        <td>작성일</td>
+                        <td style="border-right: none;">평일<br>(주말 및 공휴일 휴관)</td>
+                        <td style="border-left: none;" colspan="3">자유수영 안내</td>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        <td width="80%"></td>
-                        <td></td>
+                        <td><input type="radio" name="zxc"></td>
+                        <td>A</td>
+                        <td>06:00 ~ 08:00</td>
+                        <td rowspan="4">
+                            <ul>
+                                <li class="li">각 타임종료 20분 전까지 입장 가능합니다.</li>
+                                <li class="li">어린이는 입장 불가능합니다.</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
-                        <td>2</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><input type="radio" name="zxc"></td>
+                        <td>B</td>
+                        <td>09:00 ~ 10:00</td>
                     </tr>
                     <tr>
-                        <td>3</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><input type="radio" name="zxc"></td>
+                        <td>C</td>
+                        <td>15:00 ~ 17:00</td>
                     </tr>
                     <tr>
-                        <td>4</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><input type="radio" name="zxc"></td>
+                        <td>D</td>
+                        <td>18:00 ~ 20:00</td>
                     </tr>
                 </table>
-                <button onclick="javascript: window.location.href = './postqna.html';" class="button">글 작성하기</button>
+                <button onclick="login(event)" class="button" style="margin: auto;">신청하기</button>
             </div>
         </div>
         <div id="footer-wrap">
@@ -134,5 +141,13 @@
             </div>
         </div>
     </div>
+    <script>
+        function login(e) {
+            alert("신청이 완료되었습니다.\n취소는 마이페이지를 이용해주세요.");
+            return window.location.href = "./main.html";
+        }
+    </script>
 </body>
 </html>
+<!-- 프로그램 선택 시 해당하는 프로그램의 스케줄 표가 나오도록 생성
+     하나만 선택하고 신청하기 버튼을 누른 경우 신청할 수 없도록 설정 -->

@@ -2,14 +2,14 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>회원가입</title>
+    <title>로그인</title>
     <link rel="stylesheet" href="./assets/css/public.css">
     <style>
         html, body {margin: 0; padding: 0;}
         #wrap {width: 100%; color: #fff; font-size: 30px; text-align: center;}
         #header-wrap {width: 100%; background-color: rgb(40, 40, 40); }
         #banner-wrap {width: 100%; background-color: rgba(0, 0, 0, 0.774);} /* rgba:색깔, 투명도 조절 */
-        #content-wrap { margin: 0 auto;width: 300px; display: flex; flex-direction: column; align-items: flex-start; padding: 120px 0;}
+        #content-wrap {width: 100%; display: flex; flex-direction: column; align-items: center; padding: 120px 0;}
         #footer-wrap {width: 100%; background-color: rgb(40, 40, 40);}
 
         .header-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 100px; font-size: 15px;  font-weight: bold;}
@@ -25,22 +25,12 @@
         .tab1 {float: left; width: 35%; margin: 0}
         .tab2 {float: right; width: 20%; margin: 0}
         .input {
-            border: none;
-            border-bottom: 1px solid rgb(100, 100, 100);
+            border: 1px solid rgb(100, 100, 100);
             padding: 16px 12px;
             width: 300px;
         }
-        ul .li {
-            list-style: disc;
-            margin: 0;
-            display: list-item;
-            color: black;
-            font-size: 20px;
-            background: white;
-        }
-        label {
-            color: black;
-            font-size: 18px;
+        .input:first-child {
+            border-bottom: none;
         }
     </style>
 </head>
@@ -62,42 +52,11 @@
             </div>
         </div>
         <div id="banner-wrap">
-            <div class="banner-container">회원가입</div>
+            <div class="banner-container">로그인</div>
         </div>
         <div id="content-wrap">
-            <ul>
-                <li class="li">이름</li>
-            </ul>
-            <input class="input" type="text">
-            <ul>
-                <li class="li">전화번호</li>
-            </ul>
-            <input class="input" type="text">
-            <ul>
-                <li class="li">성별</li>
-            </ul>
-            <div style="display: flex;">
-                <label>
-                    <input type="radio" name="asd">
-                    여자
-                </label>
-                <label>
-                    <input type="radio" name="asd">
-                    남자
-                </label>
-            </div>
-            <ul>
-                <li class="li">아이디 <button onclick="javascript: alert('사용 가능한 아이디입니다.');">중복확인</button></li>
-            </ul>
-            <input class="input" type="text">
-            <ul>
-                <li class="li">비밀번호</li>
-            </ul>
-            <input class="input" type="password">
-            <ul>
-                <li class="li">비밀번호 확인</li>
-            </ul>
-            <input class="input" type="password">
+            <input class="input" type="text" placeholder="아이디">
+            <input class="input" type="password" placeholder="비밀번호">
             <button class="button" onclick="login(event)">로그인</button>
         </div>
         <div id="footer-wrap">
@@ -108,8 +67,10 @@
     </div>
     <script>
         function login(e) {
-            alert("환영합니다. 양지우 회원님 !\n회원가입이 완료되었습니다.");
-            return window.location.href = "./complete.html";
+            const [text, pw] = [...document.getElementsByClassName("input")];
+            if(text.value.length <= 0) return alert("아이디를 입력해주세요.");
+            if(pw.value.length <= 0) return alert("비밀번호를 입력해주세요.");
+            return window.location.href = "./main.html";
         }
     </script>
 </body>
