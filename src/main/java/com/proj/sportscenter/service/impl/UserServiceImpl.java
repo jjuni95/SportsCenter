@@ -42,5 +42,22 @@ public class UserServiceImpl implements UserService {
 		return resultUser;
 	}
 	
+	@Transactional
+	@Override
+	public boolean login(String userId, String password) {
+		UserVo user = userDao.selectUserByUserId(userId);
+		
+		if(user.getUserId() == null) {
+			System.out.println("해당 아이디의 유저가 존재하지 않습니다.");
+			return false;
+		}
+		if(!passwordEncoder.matches(password, user.getPassword())) {
+			System.out.println("비밀번호가 일치하지 않습니다.");
+			return false;
+		}
+		return true;
+		
+	}
+	
 	
 }
