@@ -20,7 +20,6 @@ public class QnaDaoImpl implements QnaDao {
 	// 입력한거에서 QnaVo를 가져온다  
 	@Override
 	public int insertQna(QnaVo qna) {
-<<<<<<< HEAD
 		return ssl.insert("qna.insertQna", qna);		
 	}
 	
@@ -33,24 +32,4 @@ public class QnaDaoImpl implements QnaDao {
 	public List<QnaVo> list() throws Exception {		
 		return ssl.selectList("qna.listQna");
 	}
-
-
-=======
-		return ssl.insert("qna.insertQna", qna);
-	}
-	
-	/**
-	 * 아이디를 이용해 유저 정보 조회
-	 */
-	@Override
-	public QnaVo selectUserByQnaWriter(String qnaWriter) {
-		return ssl.selectOne("qna.selectUserByQnaWriter", qnaWriter);
-	}
-	
-	//게시물 목록 조회
-	@Override
-	public List<QnaVo> list() throws Exception{
-		return ssl.selectList("qna.listQna");
-	}
->>>>>>> 02f07d948ce45c7d3965de4c7e3fc71a4c3d9ae8
 }
