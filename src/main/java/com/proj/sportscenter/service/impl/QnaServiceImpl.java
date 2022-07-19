@@ -21,22 +21,23 @@ public class QnaServiceImpl implements QnaService {
 
 	@Transactional
 	@Override
-	public QnaVo insertQna(QnaVo qna) {
+
+	public List<QnaVo> insertQna(QnaVo qna) {
 
 		int result = qnadao.insertQna(qna);
 		if (result == 0)
 			throw new RuntimeException("디비 insert 실패");
 
-//		유저 정보 조회
-		String qnaWriter = qna.getQnaWriter();
-		QnaVo resultQna = qnadao.selectUserByQnaWriter(qnaWriter);
+		// 유저 정보 조회
+		String qnaQuestion = qna.getQnaWriter();
+		List<QnaVo> resultQna = qnadao.selectUserByQnaWriter(qnaQuestion);
+
 		return resultQna;
 	}
 
 	@Override
-	public List<QnaVo> list() throws Exception{
+	public List<QnaVo> list() throws Exception {
 		return qnadao.list();
-		
 	}
 
 }
