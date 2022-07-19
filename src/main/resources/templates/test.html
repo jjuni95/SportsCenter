@@ -1,70 +1,20 @@
 <!DOCTYPE html>
-<html lang="ko">
+<!-- 타임리프로 동작 선언 -->
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>layout05</title>
-    <style>
-       
-        #wrap {width: 100%; color: #fff; font-size: 30px; text-align: center;}
-        #header-wrap {width: 100%; background-color: rgb(40, 40, 40); }
-        #banner-wrap {width: 100%; background-color: rgba(0, 0, 0, 0.774);} /* rgba:색깔, 투명도 조절 */
-        #content-wrap {width: 100%; background-color: rgba(245, 245, 245, 0.301);}
-        #footer-wrap {width: 100%; background-color: rgb(40, 40, 40);}
-
-        .header-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 100px; font-size: 15px;  font-weight: bold;}
-        /* font-weight:bold 글씨굵게, letter-spacing: 글자간격 조절 */
-        .banner-container {width: 1200px; margin: 0 auto; height : 250px; line-height: 250px;
-                           background-image: url(images/main.jpg); background-size: cover;
-                           font-size: 50px; font-weight: bold; letter-spacing : 5px;}
-        .content-container {width: 1200px; margin: 0 auto; 
-                            background-color: rgb(245, 245, 245); overflow:hidden; height:auto;}
-        .footer-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 200%; color: rgb(192, 192, 192); font-size: 15px; text-align: left;}
-        ul li {list-style: none; display: inline; margin-left: 20px;}
-        .tab1 {float: left; width: 35%; margin: 0}
-        .tab2 {float: right; width: 20%; margin: 0}
-        .image  {align-items: center; width:1100px; border: 1px solid red; margin: 0 auto; padding-top: 10px; overflow: hidden;} 
-        td  {float: left; margin-left : 32px; margin-bottom: 10px; color: black;} 
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-    <div id="wrap">
-        <div id="header-wrap">
-            <div class="header-container">
-                <ul class="tab1">
-                    <li>홈</li>
-                    <li>프로그램 소개</li>
-                    <li>공지사항</li>
-                    <li>Q&A</li>
-                    <li>후기</li>
-                  </ul>
-                  <ul class="tab2">
-                    <li>로그인</li>
-                    <li>회원가입</li>
-                  </ul>
-            </div>
-        </div>
-        <div id="banner-wrap">
-            <div class="banner-container">마이페이지</div>
-        </div>
-        <div id="content-wrap">
-            <div class="content-container">
-                <div class="image">
-                <table>
-                    <td><img src="images/수영장 (1).jpg" width="450px" height="200px" style=" display:block;">수영</td><br>
-                    <td><img src="images/헬스장.jpg" width="450px" height="200px" style="display:block;">휘트니스</td><br>
-                    <tr>
-                    <td><img src="images/필라테스.webp" width="450px" height="200px" style="display:block;">필라테스</td><br>
-                    <td><img src="images/요가.webp" width="450px" height="200px" style="display:block;">요가</td><br>
-                    </tr>
-                </table>
-            </div>
-            </div>
-        </div>
-        <div id="footer-wrap">
-            <div class="footer-container">(가산교육장) 서울특별시 금천구 가산디지털1로 70 호서대벤처타워 2층 <br>
-                                           Tel. 123-456-789 | E-mail. kosmo@naver.com
-            </div>
-        </div>
+    
+    <h1>TEST</h1>
+
+    <div th:if="${session.user != null}">
+        <div>ID : <span th:text="${session.user.userId}"></span></div>
+        <div th:text="${session.user.admin}">  </div>
     </div>
+
 </body>
 </html>

@@ -2,14 +2,14 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>회원가입</title>
+    <title>Q&A</title>
     <link rel="stylesheet" href="./assets/css/public.css">
     <style>
         html, body {margin: 0; padding: 0;}
         #wrap {width: 100%; color: #fff; font-size: 30px; text-align: center;}
         #header-wrap {width: 100%; background-color: rgb(40, 40, 40); }
         #banner-wrap {width: 100%; background-color: rgba(0, 0, 0, 0.774);} /* rgba:색깔, 투명도 조절 */
-        #content-wrap { margin: 0 auto;width: 300px; display: flex; flex-direction: column; align-items: flex-start; padding: 120px 0;}
+        #content-wrap { margin: 0 auto;width: 800px; display: flex; flex-direction: column; align-items: flex-start; padding: 120px 0;color: black;}
         #footer-wrap {width: 100%; background-color: rgb(40, 40, 40);}
 
         .header-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 100px; font-size: 15px;  font-weight: bold;}
@@ -22,7 +22,7 @@
                         }
         .footer-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 200%; color: rgb(192, 192, 192); font-size: 15px; text-align: left;}
         ul li {list-style: none; display: inline; margin-left: 20px;cursor: pointer;}
-        .tab1 {float: left; width: 35%; margin: 0}
+        .tab1 {float: left; width: 30%; margin: 0}
         .tab2 {float: right; width: 20%; margin: 0}
         .input {
             border: none;
@@ -38,9 +38,19 @@
             font-size: 20px;
             background: white;
         }
-        label {
-            color: black;
+        span {
             font-size: 18px;
+        }
+        table {
+            font-size: 18px;
+            white-space: nowrap;
+            border: 1px solid rgb(50, 50, 50);
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid rgb(50, 50, 50);
+            padding: 20px;
         }
     </style>
 </head>
@@ -62,43 +72,61 @@
             </div>
         </div>
         <div id="banner-wrap">
-            <div class="banner-container">회원가입</div>
+            <div class="banner-container">Q&A</div>
         </div>
         <div id="content-wrap">
-            <ul>
-                <li class="li">이름</li>
-            </ul>
-            <input class="input" type="text">
-            <ul>
-                <li class="li">전화번호</li>
-            </ul>
-            <input class="input" type="text">
-            <ul>
-                <li class="li">성별</li>
-            </ul>
-            <div style="display: flex;">
-                <label>
-                    <input type="radio" name="asd">
-                    여자
-                </label>
-                <label>
-                    <input type="radio" name="asd">
-                    남자
-                </label>
+            <div style="width: 100%; display: flex; flex-direction: column; gap: 10px;">
+                <table>
+                    <tr>
+                        <td>NO</td>
+                        <td>제목</td>
+                        <td>작성자</td>
+                        <td>작성일</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td width="80%"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <button onclick="javascript: window.location.href = './postqna.html';" class="button">글 작성하기</button>
             </div>
-            <ul>
-                <li class="li">아이디 <button onclick="javascript: alert('사용 가능한 아이디입니다.');">중복확인</button></li>
-            </ul>
-            <input class="input" type="text">
-            <ul>
-                <li class="li">비밀번호</li>
-            </ul>
-            <input class="input" type="password">
-            <ul>
-                <li class="li">비밀번호 확인</li>
-            </ul>
-            <input class="input" type="password">
-            <button class="button" onclick="login(event)">로그인</button>
         </div>
         <div id="footer-wrap">
             <div class="footer-container">(가산교육장) 서울특별시 금천구 가산디지털1로 70 호서대벤처타워 2층 <br>
@@ -106,11 +134,5 @@
             </div>
         </div>
     </div>
-    <script>
-        function login(e) {
-            alert("환영합니다. 양지우 회원님 !\n회원가입이 완료되었습니다.");
-            return window.location.href = "./complete.html";
-        }
-    </script>
 </body>
 </html>

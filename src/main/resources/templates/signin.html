@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link rel="stylesheet" th:href="@{/assets/css/public.css}">
+    <style>
+        html, body {margin: 0; padding: 0;}
+        #wrap {width: 100%; color: #fff; font-size: 30px; text-align: center;}
+        #header-wrap {width: 100%; background-color: rgb(40, 40, 40); }
+        #banner-wrap {width: 100%; background-color: rgba(0, 0, 0, 0.774);} /* rgba:색깔, 투명도 조절 */
+        #content-wrap {width: 100%; display: flex; flex-direction: column; align-items: center; padding: 120px 0;}
+        #footer-wrap {width: 100%; background-color: rgb(40, 40, 40);}
+
+        .header-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 100px; font-size: 15px;  font-weight: bold;}
+        /* font-weight:bold 글씨굵게, letter-spacing: 글자간격 조절 */
+        .banner-container {width: 1200px; margin: 0 auto; height : 250px; line-height: 250px;
+                           background-image: url(/assets/image/main.jpg); background-size: cover;
+                           font-size: 50px; font-weight: bold; letter-spacing : 5px;}
+        .content-container {width: 1200px; margin: 0 auto; height: 700px; line-height: 500px;
+                            background-color: rgb(245, 245, 245); overflow:hidden; height:auto;
+                        }
+        .footer-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 200%; color: rgb(192, 192, 192); font-size: 15px; text-align: left;}
+        ul li {list-style: none; display: inline; margin-left: 20px;cursor: pointer;}
+        .tab1 {float: left; width: 35%; margin: 0}
+        .tab2 {float: right; width: 20%; margin: 0}
+        .input {
+            border: 1px solid rgb(100, 100, 100);
+            padding: 16px 12px;
+            width: 300px;
+        }
+        .input:first-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header-wrap">
+            <div class="header-container">
+                <ul class="tab1">
+                    <li><a th:href="@{/signin}">홈</a></li>
+                    <li><a href="/signin">프로그램 소개</a></li>
+                    <li><a href="/signin">공지사항</a></li>
+                    <li><a href="/qna">Q&A</a></li>
+                    <li><a href="/review">후기</a></li>
+                  </ul>
+                  <ul class="tab2">
+                    <li onclick="javascript: window.location.href = './signin.html';">로그인</li>
+                    <li onclick="javascript: window.location.href = './signup.html';">회원가입</li>
+                  </ul>
+            </div>
+        </div>
+
+        <div th:if="${session.user != null}">
+            <div>ID : <span th:text="${session.user.userId}"></span></div>
+            <div th:text="${session.user.admin}">  </div>
+        </div>
+
+        <div id="banner-wrap">
+            <div class="banner-container">로그인</div>
+        </div>
+        <div id="content-wrap">
+            <form th:action="@{/login}" method="POST">
+                <input class="input" type="text" placeholder="아이디" name="userId">
+                <input class="input" type="password" placeholder="비밀번호" name="password">
+                <button class="button">로그인</button>
+            </form>
+
+        </div>
+        <div id="footer-wrap">
+            <div class="footer-container">(가산교육장) 서울특별시 금천구 가산디지털1로 70 호서대벤처타워 2층 <br>
+                                           Tel. 123-456-789 | E-mail. kosmo@naver.com
+            </div>
+        </div>
+    </div>
+    <script>
+        function login(e) {
+            const [text, pw] = [...document.getElementsByClassName("input")];
+            if(text.value.length <= 0) return alert("아이디를 입력해주세요.");
+            if(pw.value.length <= 0) return alert("비밀번호를 입력해주세요.");
+            return window.location.href = "./main.html";
+        }
+    </script>
+</body>
+</html>

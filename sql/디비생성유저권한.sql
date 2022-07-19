@@ -1,5 +1,5 @@
 -- 데이터 베이스 생성
-CREATE DATABASE sportscenter;
+CREATE DATABASE unimon;
 
 -- 디비 확인
 SHOW DATABASES;

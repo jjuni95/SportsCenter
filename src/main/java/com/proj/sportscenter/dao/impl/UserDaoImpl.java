@@ -18,6 +18,7 @@ public class UserDaoImpl implements UserDao {
 	 */
 	@Override
 	public int insertUser(UserVo user) {
+//		"user.insertUser" = "${namespace}.${id}"
 		return ssl.insert("user.insertUser", user);
 	}
 

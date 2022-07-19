@@ -25,6 +25,7 @@ public class UserVo {
 	private String password;
 	private String phoneNumber;
 	private String gender;
+	private boolean admin;
 	private LocalDateTime regDate;
 	
 }
