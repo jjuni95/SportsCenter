@@ -32,9 +32,9 @@ public class UserController {
 	/**
 	 * 로그인 페이지 이동
 	 */
-    @GetMapping(value = "/signin")
+    @GetMapping(value = "/login")
     public String viewLoginPage() throws Exception {
-        return "signin";
+        return "login";
     }
     
     /**
@@ -54,12 +54,12 @@ public class UserController {
 						@RequestParam(value = "password") String password) throws Exception {
     	
 		log.debug("[userId]=[{}]", userId);
-		log.debug("[userId]=[{}]", password);
+		log.debug("[userPassword]=[{}]", password);
 		
 //		유저아이디와 비밀번호를 들고 유저 조회
 		UserVo user = userService.login(userId, password, session);
     	
-    	return "redirect:test";
+    	return "postqna";
     }
     
 	
@@ -78,7 +78,7 @@ public class UserController {
 		UserVo resultUser = userService.signup(user);
 		log.debug("[resultUser]=[{}]", resultUser);
 		
-		return "signup";
+		return "login";
 	}
 	
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>회원가입</title>
@@ -64,51 +64,54 @@
         <div id="banner-wrap">
             <div class="banner-container">회원가입</div>
         </div>
-        <div id="content-wrap">
+        <form action="signup" method="post">
+        <div id="content-wrap">        
             <ul>
                 <li class="li">이름</li>
             </ul>
-            <input class="input" type="text">
+            <input class="input" type="text" name="userName">
             <ul>
                 <li class="li">전화번호</li>
             </ul>
-            <input class="input" type="text">
+            <input class="input" type="text" name="phoneNumber">
             <ul>
                 <li class="li">성별</li>
             </ul>
             <div style="display: flex;">
                 <label>
-                    <input type="radio" name="asd">
+                    <input type="radio" name="gender" value="F">
                     여자
                 </label>
                 <label>
-                    <input type="radio" name="asd">
+                    <input type="radio" name="gender" value="M">
                     남자
                 </label>
             </div>
             <ul>
                 <li class="li">아이디 <button onclick="javascript: alert('사용 가능한 아이디입니다.');">중복확인</button></li>
             </ul>
-            <input class="input" type="text">
+            <input class="input" type="text" name="userId">
             <ul>
                 <li class="li">비밀번호</li>
             </ul>
-            <input class="input" type="password">
+            <input class="input" type="password" name="password">
             <ul>
                 <li class="li">비밀번호 확인</li>
             </ul>
             <input class="input" type="password">
-            <button class="button" onclick="login(event)">로그인</button>
+            <button class="button" onclick="login(event)">회원가입</button>            
         </div>
+        </form>
+        
         <div id="footer-wrap">
             <div class="footer-container">(가산교육장) 서울특별시 금천구 가산디지털1로 70 호서대벤처타워 2층 <br>
                                            Tel. 123-456-789 | E-mail. kosmo@naver.com
             </div>
         </div>
     </div>
-    <script>
-        function login(e) {
-            alert("환영합니다. 양지우 회원님 !\n회원가입이 완료되었습니다.");
+    <script th:inline="javascript">
+        function login(e) {        	
+            alert("환영합니다. \n회원가입이완료되었습니다.");
             return window.location.href = "./complete.html";
         }
     </script>

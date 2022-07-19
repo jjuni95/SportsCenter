@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Q&A</title>
@@ -76,55 +76,23 @@
         </div>
         <div id="content-wrap">
             <div style="width: 100%; display: flex; flex-direction: column; gap: 10px;">
+                <form action="qnalist" method="post">
                 <table>
                     <tr>
-                        <td>NO</td>
-                        <td>제목</td>
-                        <td>작성자</td>
-                        <td>작성일</td>
+                    	<th>No</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>날짜</th>      
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td width="80%"></td>
-                        <td></td>
+                    <tr th:each="list, listNum :${list}">
+                    	<td th:text="${listNum.count}"></td>
+                        <td th:text="${list.qnaTitle}"></td>
+                        <td th:text="${list.qnaWriter}"></td>    
+                        <td th:text="${#temporals.format(list.regDate, 'yyyy-MM-dd')}"></td>                  
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                   
                 </table>
+                </form>
                 <button onclick="javascript: window.location.href = './postqna.html';" class="button">글 작성하기</button>
             </div>
         </div>

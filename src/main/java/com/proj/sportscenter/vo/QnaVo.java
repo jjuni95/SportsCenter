@@ -16,7 +16,8 @@ import lombok.ToString;
 @ToString
 
 public class QnaVo {
-	private Long qnaNo; //관습상 long으로한다~.
+	private Long qnaNo; //관습상 long으로한다~. 
+	private String qnaTitle;
 	private String qnaQuestion;
 	private String qnaAnswer;
 	private String qnaWriter;

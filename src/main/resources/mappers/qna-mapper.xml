@@ -4,10 +4,31 @@
 
 	<insert id="insertQna" parameterType="QnaVo">
 		INSERT INTO 
-			TB_QNA(QNA_QUESTION, QNA_ANSWER, QNA_WRITER) 
+			TB_QNA(QNA_QUESTION, QNA_ANSWER, QNA_WRITER, QNA_TITLE) 
 		VALUES
-			(#{qnaQuestion}, #{qnaAnswer}, #{qnaWriter})
+			(#{qnaQuestion}, #{qnaAnswer}, #{qnaWriter}, #{qnaTitle})
 	</insert>
 	
+	<update id="updateAnswer" parameterType="QnaVo">
+		UPDATE TB_QNA 
+			SET QNA_ANSWER=#{qnaAnswer}
+			WHERE QNA_NO=#{qnaNo}
+	</update>
+	
+	<select id="selectUserByQnaWriter" parameterType="QnaVo" resultType="QnaVo">
+		SELECT 
+			*
+		FROM 
+			TB_QNA
+		WHERE 
+			QNA_WRITER = #{qnaWriter}
+	</select>
+	
+	<select id="listQna" parameterType="QnaVo" resultType="QnaVo">
+		SELECT 
+			QNA_TITLE, QNA_WRITER, REG_DATE
+		FROM
+			TB_QNA	
+	</select>
 	
 </mapper>

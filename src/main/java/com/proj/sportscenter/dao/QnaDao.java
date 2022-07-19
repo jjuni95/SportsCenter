@@ -1,9 +1,15 @@
 package com.proj.sportscenter.dao;
 
+import java.util.List;
+
 import com.proj.sportscenter.vo.QnaVo;
 
 public interface QnaDao {
 	
-	int enroll(QnaVo Qna);
+	int insertQna(QnaVo Qna);
+	
+	public List<QnaVo> selectUserByQnaWriter(String qnaWriter);
+	
+	public List<QnaVo> list() throws Exception;
 
 }
