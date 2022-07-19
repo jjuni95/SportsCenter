@@ -2,8 +2,11 @@ package com.proj.sportscenter.service.impl;
 
 import java.util.List;
 
+<<<<<<< HEAD
 import javax.servlet.http.HttpSession;
 
+=======
+>>>>>>> 02f07d948ce45c7d3965de4c7e3fc71a4c3d9ae8
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +25,7 @@ public class QnaServiceImpl implements QnaService {
 	
 
 	@Autowired
+<<<<<<< HEAD
 	private QnaDao qnadao;	
 	
 	@Transactional
@@ -45,4 +49,28 @@ public class QnaServiceImpl implements QnaService {
 	}
 }
 
+=======
+	private QnaDao qnadao;
 
+	@Transactional
+	@Override
+	public QnaVo insertQna(QnaVo qna) {
+>>>>>>> 02f07d948ce45c7d3965de4c7e3fc71a4c3d9ae8
+
+		int result = qnadao.insertQna(qna);
+		if (result == 0)
+			throw new RuntimeException("디비 insert 실패");
+
+//		유저 정보 조회
+		String qnaWriter = qna.getQnaWriter();
+		QnaVo resultQna = qnadao.selectUserByQnaWriter(qnaWriter);
+		return resultQna;
+	}
+
+	@Override
+	public List<QnaVo> list() throws Exception{
+		return qnadao.list();
+		
+	}
+
+}

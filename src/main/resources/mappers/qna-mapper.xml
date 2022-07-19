@@ -3,12 +3,18 @@
 <mapper namespace="qna">
 
 	<insert id="insertQna" parameterType="QnaVo">
+	 <!-- 타이틀 넣기 -->
 		INSERT INTO 
+<<<<<<< HEAD
 			TB_QNA(QNA_QUESTION, QNA_ANSWER, QNA_WRITER, QNA_TITLE) 
+=======
+			TB_QNA(QNA_QUESTION, QNA_ANSWER, QNA_WRITER, QNA_TITLE)
+>>>>>>> 02f07d948ce45c7d3965de4c7e3fc71a4c3d9ae8
 		VALUES
 			(#{qnaQuestion}, #{qnaAnswer}, #{qnaWriter}, #{qnaTitle})
 	</insert>
 	
+<<<<<<< HEAD
 	<update id="updateAnswer" parameterType="QnaVo">
 		UPDATE TB_QNA 
 			SET QNA_ANSWER=#{qnaAnswer}
@@ -30,5 +36,27 @@
 		FROM
 			TB_QNA	
 	</select>
+=======
+	<update id="updateQna" parameterType="QnaVo">
+		UPDATE TB_QNA
+			SET QNA_ANSWER=#{qnaAnswer}
+			WHERE QNA_NO=#{qnaNo}
+	</update>
+>>>>>>> 02f07d948ce45c7d3965de4c7e3fc71a4c3d9ae8
 	
+	<select id="selectUserByQnaWriter" parameterType="string" resultType="QnaVo">	
+		SELECT 
+			* 
+		FROM 
+			TB_QNA
+		WHERE 
+			QNA_WRITER = #{qnaWriter}
+	</select>
+	
+	<select id="listQna" parameterType="string" resultType="QnaVo">
+		SELECT 
+			QNA_NO, QNA_TITLE, QNA_WRITER, REG_DATE
+		FROM TB_QNA
+		ORDER BY TB_QNA DESC
+	</select>
 </mapper>
