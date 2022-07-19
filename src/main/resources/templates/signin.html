@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>로그인</title>
-    <link rel="stylesheet" href="./assets/css/public.css">
+    <link rel="stylesheet" th:href="@{/assets/css/public.css}">
     <style>
         html, body {margin: 0; padding: 0;}
         #wrap {width: 100%; color: #fff; font-size: 30px; text-align: center;}
@@ -39,11 +39,11 @@
         <div id="header-wrap">
             <div class="header-container">
                 <ul class="tab1">
-                    <li onclick="javascript: window.location.href = './main.html';">홈</li>
-                    <li onclick="javascript: window.location.href = './intro.html';">프로그램 소개</li>
-                    <li onclick="javascript: window.location.href = './notice.html';">공지사항</li>
-                    <li onclick="javascript: window.location.href = './qna.html';">Q&A</li>
-                    <li onclick="javascript: window.location.href = './review.html';">후기</li>
+                    <li><a th:href="@{/signin}">홈</a></li>
+                    <li><a href="/signin">프로그램 소개</a></li>
+                    <li><a href="/signin">공지사항</a></li>
+                    <li><a href="/qna">Q&A</a></li>
+                    <li><a href="/review">후기</a></li>
                   </ul>
                   <ul class="tab2">
                     <li onclick="javascript: window.location.href = './signin.html';">로그인</li>
@@ -51,13 +51,22 @@
                   </ul>
             </div>
         </div>
+
+        <div th:if="${session.user != null}">
+            <div>ID : <span th:text="${session.user.userId}"></span></div>
+            <div th:text="${session.user.admin}">  </div>
+        </div>
+
         <div id="banner-wrap">
             <div class="banner-container">로그인</div>
         </div>
         <div id="content-wrap">
-            <input class="input" type="text" placeholder="아이디">
-            <input class="input" type="password" placeholder="비밀번호">
-            <button class="button" onclick="login(event)">로그인</button>
+            <form th:action="@{/login}" method="POST">
+                <input class="input" type="text" placeholder="아이디" name="userId">
+                <input class="input" type="password" placeholder="비밀번호" name="password">
+                <button class="button">로그인</button>
+            </form>
+
         </div>
         <div id="footer-wrap">
             <div class="footer-container">(가산교육장) 서울특별시 금천구 가산디지털1로 70 호서대벤처타워 2층 <br>
