@@ -84,15 +84,15 @@
         </div>
         <!-- 질문, 답변 textarea -->
         <!-- form action 추후 추가 필요 -->
-        <form action="">
+        <form action="postqna" method="post">
             <div id="content-wrap">
                 <div style="width: 100%; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; background: white; padding: 20px;">
                     <h5 style="padding-bottom: 20px;">Q. 질문</h5>
-                    <textarea cols="30" rows="10" placeholder="답변을 입력해주세요"></textarea>
+                    <textarea cols="30" rows="10" placeholder="답변을 입력해주세요" name="qnaQuestion"></textarea>
                 </div>
                 <div style="width: 100%; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; background: white; padding: 20px;">
                     <h5 style="padding-bottom: 20px;">A. 답변</h5>
-                    <textarea cols="30" rows="10" placeholder="답변을 입력해주세요"></textarea>
+                    <textarea cols="30" rows="10" placeholder="답변을 입력해주세요" name="qnaAnswer"></textarea>
                 </div>
                 <div class="display: flex;">
                     <button onclick="submit()" class="button">저장하기</button>

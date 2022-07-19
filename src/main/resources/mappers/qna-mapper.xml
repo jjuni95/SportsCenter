@@ -3,11 +3,26 @@
 <mapper namespace="qna">
 
 	<insert id="insertQna" parameterType="QnaVo">
+	 <!-- 타이틀 넣기 -->
 		INSERT INTO 
-			TB_QNA(QNA_QUESTION, QNA_ANSWER, QNA_WRITER) 
+			TB_QNA(QNA_QUESTION, QNA_ANSWER) 
 		VALUES
-			(#{qnaQuestion}, #{qnaAnswer}, #{qnaWriter})
+			(#{qnaQuestion}, #{qnaAnswer})
 	</insert>
 	
+	<update id="updateQna" parameterType="QnaVo">
+		UPDATE TB_QNA
+			SET QNA_ANSWER=#{qnaAnswer}
+			WHERE QNA_NO=#{qnaNo}
+	</update>
 	
+		<select id="selectUserByQnaQuestion" parameterType="string" resultType="QnaVo">
+	<!-- <select id="selectUserByQnaWriter" parameterType="string" resultType="QnaVo"> -->	
+		SELECT 
+			* 
+		FROM 
+			TB_QNA
+		WHERE 
+			QNA_QUESTION = #{qnaQuestion}
+	</select>
 </mapper>

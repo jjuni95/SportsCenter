@@ -4,6 +4,9 @@ import com.proj.sportscenter.vo.QnaVo;
 
 public interface QnaDao {
 	
-	int enroll(QnaVo Qna);
+	int insertQna(QnaVo Qna);
+	
+//	QnaVo selectUserByQnaWriter(String qnaWriter);
+	QnaVo selectUserByQnaQuestion(String qnaQuestion);
 
 }

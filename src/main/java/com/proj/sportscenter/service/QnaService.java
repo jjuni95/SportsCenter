@@ -4,6 +4,5 @@ import com.proj.sportscenter.vo.QnaVo;
 
 public interface QnaService {
 
-	public void enroll(QnaVo Qna);
-
+	public QnaVo insertQna(QnaVo Qna);
 }
