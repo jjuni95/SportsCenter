@@ -1,12 +1,13 @@
 package com.proj.sportscenter.dao.impl;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.proj.sportscenter.dao.QnaDao;
 import com.proj.sportscenter.vo.QnaVo;
-import com.proj.sportscenter.vo.UserVo;
 
 @Repository
 public class QnaDaoImpl implements QnaDao {
@@ -25,7 +26,13 @@ public class QnaDaoImpl implements QnaDao {
 	 * 아이디를 이용해 유저 정보 조회
 	 */
 	@Override
-	public QnaVo selectUserByQnaQuestion(String qnaQuestion) {
-		return ssl.selectOne("qna.selectUserByQnaQuestion", qnaQuestion);
+	public QnaVo selectUserByQnaWriter(String qnaWriter) {
+		return ssl.selectOne("qna.selectUserByQnaWriter", qnaWriter);
+	}
+	
+	//게시물 목록 조회
+	@Override
+	public List<QnaVo> list() throws Exception{
+		return ssl.selectList("qna.listQna");
 	}
 }

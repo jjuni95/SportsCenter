@@ -2,12 +2,12 @@ package com.proj.sportscenter.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.proj.sportscenter.service.QnaService;
 import com.proj.sportscenter.vo.QnaVo;
-import com.proj.sportscenter.vo.UserVo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,8 +18,10 @@ public class QnaController {
 	@Autowired
 	private QnaService qnaService;
 	
+	//게시판 목록 조회
 	@GetMapping(value = "/qnalist")
-	public String viewQnaList() throws Exception {
+		public String viewQnaList(Model model) throws Exception{
+			model.addAttribute("list", qnaService.list());
 		return "qnalist";
 	}
 
@@ -46,5 +48,6 @@ public class QnaController {
 		
 		return "qnalist";
 	}
+
 
 }

@@ -10,10 +10,9 @@ CREATE TABLE IF NOT EXISTS `TB_USER_INFO` (
    `ADMIN` BIT DEFAULT 0,
    PRIMARY KEY(`USER_NO`)
 ) ENGINE=INNODB DEFAULT CHARSET=UTF8 COLLATE UTF8_GENERAL_CI;
-<<<<<<< HEAD
-=======
+
 select * from tb_user_info;
->>>>>>> 6ccaf922fbb6b4e37d64e9304f4fbf13a6a82bba
+
 
 
 -- NOTICE INFO
@@ -63,3 +62,13 @@ CREATE TABLE IF NOT EXISTS `TB_QNA` (
 insert into TB_QNA(QNA_QUESTION, QNA_ANSWER, QNA_WRITER) values ('질문','답변','작성자');
 
 SELECT * FROM TB_QNA;
+
+alter table TB_QNA modify column `QNA_WRITER` VARCHAR(50) null;
+
+alter table TB_QNA add column `QNA_TITLE` VARCHAR(100) not null;
+
+delete from tb_user_info;
+
+select QNA_WRITER
+from TB_QNA
+where QNA_WRITER ='wnsgml6440';
