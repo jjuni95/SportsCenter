@@ -12,7 +12,6 @@ import com.proj.sportscenter.vo.QnaVo;
 @Repository
 public class QnaDaoImpl implements QnaDao {
 
-	
 	@Autowired
 	private SqlSessionTemplate ssl;
 
@@ -20,22 +19,6 @@ public class QnaDaoImpl implements QnaDao {
 	// 입력한거에서 QnaVo를 가져온다  
 	@Override
 	public int insertQna(QnaVo qna) {
-<<<<<<< HEAD
-		return ssl.insert("qna.insertQna", qna);		
-	}
-	
-	@Override
-	public List<QnaVo> selectUserByQnaWriter(String qnaWriter) {
-		return ssl.selectList("qna.selectUserByQnaWriter", qnaWriter);
-	}
-	
-	@Override
-	public List<QnaVo> list() throws Exception {		
-		return ssl.selectList("qna.listQna");
-	}
-
-
-=======
 		return ssl.insert("qna.insertQna", qna);
 	}
 	
@@ -52,5 +35,4 @@ public class QnaDaoImpl implements QnaDao {
 	public List<QnaVo> list() throws Exception{
 		return ssl.selectList("qna.listQna");
 	}
->>>>>>> 02f07d948ce45c7d3965de4c7e3fc71a4c3d9ae8
 }
