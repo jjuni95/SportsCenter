@@ -86,11 +86,7 @@
         <!-- form action 추후 추가 필요 -->
         <form action="postqna" method="post">
             <div id="content-wrap">
-<<<<<<< HEAD
-            	제목 <input type="text" name="qnaTitle" placeholder="제목을 입력해주세요"/>
-=======
             제목<input type="text" name="qnaTitle" placeholder="제목을 입력해주세요"/>
->>>>>>> 02f07d948ce45c7d3965de4c7e3fc71a4c3d9ae8
                 <div style="width: 100%; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; background: white; padding: 20px;">
                     <h5 style="padding-bottom: 20px;">Q. 질문</h5>
                     <textarea cols="30" rows="10" placeholder="답변을 입력해주세요" name="qnaQuestion"></textarea>
@@ -98,11 +94,7 @@
                 <div style="width: 100%; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; background: white; padding: 20px;">
                     <h5 style="padding-bottom: 20px;">A. 답변</h5>
                     <textarea cols="30" rows="10" placeholder="답변을 입력해주세요" name="qnaAnswer"></textarea>
-<<<<<<< HEAD
-                    <input type="hidden" th:value=*{session.user.userId} name="qnaWriter"/>
-=======
                     <input type="hidden" th:value="*{session.user.userId}" name="qnaWriter"/>
->>>>>>> 02f07d948ce45c7d3965de4c7e3fc71a4c3d9ae8
                 </div>
                 <div class="display: flex;">
                     <button class="button">저장하기</button>

@@ -79,20 +79,6 @@
                 <form action="qnalist" method="post">
                 <table>
                     <tr>
-<<<<<<< HEAD
-                    	<th>No</th>
-                        <th>제목</th>
-                        <th>작성자</th>
-                        <th>날짜</th>      
-                    </tr>
-                    <tr th:each="list, listNum :${list}">
-                    	<td th:text="${listNum.count}"></td>
-                        <td th:text="${list.qnaTitle}"></td>
-                        <td th:text="${list.qnaWriter}"></td>    
-                        <td th:text="${#temporals.format(list.regDate, 'yyyy-MM-dd')}"></td>                  
-                    </tr>
-                   
-=======
                         <th>NO</th>
                         <th>제목</th>
                         <th>작성자</th>
@@ -104,8 +90,6 @@
                         <td th:text="${list.qnaWriter}"></td>
                         <td th:text="${#temporals.format(list.regDate, 'yyyy-MM-dd')}"></td>
                     </tr>
-                 
->>>>>>> 02f07d948ce45c7d3965de4c7e3fc71a4c3d9ae8
                 </table>
                 </form>
                 <button onclick="javascript: window.location.href = './postqna.html';" class="button">글 작성하기</button>
