@@ -40,4 +40,9 @@ public class QnaServiceImpl implements QnaService {
 		return qnadao.list();
 	}
 
+	@Override
+	public QnaVo getQnaByNo(long no) {
+		return qnadao.selectQnaByNo(no);
+	}
+
 }

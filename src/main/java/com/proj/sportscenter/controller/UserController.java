@@ -62,6 +62,14 @@ public class UserController {
     	return "postqna";
     }
     
+	/**
+	 * 로그아웃
+	 */
+	@PostMapping(value = "/logout")
+	public String logout(HttpSession session) throws Exception {
+		session.invalidate();
+		return "redirect:/main";
+	}
 	
     /**
      * 회원 가입 요청

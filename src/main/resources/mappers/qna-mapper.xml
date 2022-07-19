@@ -31,10 +31,19 @@
 			WHERE QNA_NO=#{qnaNo}
 	</update>
 
+	<select id="selectQnaByNo" parameterType="long" resultType="QnaVo">
+		SELECT 
+			QNA_NO, QNA_TITLE, QNA_WRITER, REG_DATE, QNA_ANSWER,  QNA_QUESTION
+		FROM TB_QNA
+		where
+			qna_no = #{no}
+	</select>
+
+
 	<select id="listQna" parameterType="string" resultType="QnaVo">
 		SELECT 
 			QNA_NO, QNA_TITLE, QNA_WRITER, REG_DATE
 		FROM TB_QNA
-		ORDER BY TB_QNA DESC
+		ORDER BY REG_DATE DESC
 	</select>
 </mapper>

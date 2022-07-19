@@ -10,4 +10,6 @@ public interface QnaService {
 	
 	public List<QnaVo> list() throws Exception;
 
+	QnaVo getQnaByNo(long no);
+
 }

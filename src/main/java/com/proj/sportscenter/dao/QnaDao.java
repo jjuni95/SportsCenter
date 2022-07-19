@@ -12,4 +12,6 @@ public interface QnaDao {
 
 	public List<QnaVo> list() throws Exception;
 
+	QnaVo selectQnaByNo(long no);
+
 }

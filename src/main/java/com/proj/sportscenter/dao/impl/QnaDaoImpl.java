@@ -29,6 +29,11 @@ public class QnaDaoImpl implements QnaDao {
 	
 	@Override
 	public List<QnaVo> list() throws Exception {		
-		return ssl.selectList("qna.listQna");
+		return ssl.selectList("qna.listQna"); 
+	}
+
+	@Override
+	public QnaVo selectQnaByNo(long no) {
+		return ssl.selectOne("qna.selectQnaByNo", no);
 	}
 }

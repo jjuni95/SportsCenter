@@ -1,0 +1,15 @@
+button {
+    outline: none;
+    cursor: pointer;
+    border: none;
+    width: 120px;
+    border-radius: 8px;
+    padding: 14px 0;
+    color: white;
+    background: rgb(110, 110, 110);
+    margin-top: 30px;
+}
+
+input {
+    outline: none;
+}

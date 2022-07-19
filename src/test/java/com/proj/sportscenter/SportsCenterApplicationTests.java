@@ -8,6 +8,7 @@ class SportsCenterApplicationTests {
 
 	@Test
 	void contextLoads() {
+		
 	}
 
 }

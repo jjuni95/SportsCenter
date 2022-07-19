@@ -2,25 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Q&A</title>
-    <link rel="stylesheet" th:href="@{/assets/css/public.css}">
+    <title>Q&A 글쓰기</title>
+    <link rel="stylesheet" href="./assets/css/public.css">
     <style>
         html, body {margin: 0; padding: 0;}
         #wrap {width: 100%; color: #fff; font-size: 30px; text-align: center;}
         #header-wrap {width: 100%; background-color: rgb(40, 40, 40); }
         #banner-wrap {width: 100%; background-color: rgba(0, 0, 0, 0.774);} /* rgba:색깔, 투명도 조절 */
-        #content-wrap { margin: 0 auto;width: 800px; display: flex; flex-direction: column; align-items: flex-start; padding: 120px 0;color: black;}
+        #content-wrap { margin: 0 auto;width: 800px;background: rgb(245, 245, 245);display: flex; flex-direction: column; align-items: flex-start; padding: 120px;color: black;}
         #footer-wrap {width: 100%; background-color: rgb(40, 40, 40);}
-
+        
         .header-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 100px; font-size: 15px;  font-weight: bold;}
         /* font-weight:bold 글씨굵게, letter-spacing: 글자간격 조절 */
         .banner-container {width: 1200px; margin: 0 auto; height : 250px; line-height: 250px;
                            background-image: url(/assets/image/main.jpg); background-size: cover;
                            font-size: 50px; font-weight: bold; letter-spacing : 5px;}
-        .content-container {width: 1200px; margin: 0 auto; height: 700px; line-height: 500px;
+        .content-container {width: 1200px; margin: 0 auto; height: 700px; line-height: 700px;
                             background-color: rgb(245, 245, 245); overflow:hidden; height:auto;
                         }
-        .footer-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 200%; color: rgb(192, 192, 192); font-size: 15px; text-align: left;}
+        .footer-container {width: 1000px; margin: 0 auto; height: 100px; line-height: 200%; color: rgb(192, 192, 192); font-size: 15px; text-align: left;}
         ul li {list-style: none; display: inline; margin-left: 20px;cursor: pointer;}
         .tab1 {float: left; width: 30%; margin: 0}
         .tab2 {float: right; width: 20%; margin: 0}
@@ -50,7 +50,15 @@
 
         td {
             border: 1px solid rgb(50, 50, 50);
-            padding: 20px;
+            padding: 18px;
+        }
+        textarea {
+            font-size: 17px;
+            width: 100%;
+            height: 300px;
+            resize: none;
+            border: 2px solid rgb(126, 116, 116);
+            outline-color: #0c0b0c;
         }
     </style>
 </head>
@@ -74,51 +82,43 @@
         <div id="banner-wrap">
             <div class="banner-container">Q&A</div>
         </div>
-        <div id="content-wrap">
-            <div style="width: 100%; display: flex; flex-direction: column; gap: 10px;">
-                <form action="qnalist" method="post">
-                <table>
-                    <tr>
-                        <th>NO</th>
-                        <th>제목</th>
-                        <th>작성자</th>
-                        <th>작성일</th>
-                    </tr>
-                    <tr th:each="list, listNum :${list}">
-                        <input type="hidden" th:value="*{list.qnaNo}">
-                        <td th:text="${listNum.count}"></td>
-                        <td><a href="#" th:text="${list.qnaTitle}"></a></td>
-                        <td th:text="${list.qnaWriter}"></td>
-                        <td th:text="${#temporals.format(list.regDate, 'yyyy-MM-dd')}"></td>
-                    </tr>
-                </table>
-                </form>
-                <button onclick="javascript: window.location.href = './postqna.html';" class="button">글 작성하기</button>
+        <!-- 질문, 답변 textarea -->
+        <!-- form action 추후 추가 필요 -->
+        <form action="postqna" method="post">
+            <div id="content-wrap">
+            제목<input type="text" name="qnaTitle" placeholder="제목을 입력해주세요"/>
+                <div style="width: 100%; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; background: white; padding: 20px;">
+                    <h5 style="padding-bottom: 20px;">Q. 질문</h5>
+                    <div th:text="${qna.qnaQuestion}"></div>
+                </div>
+                <div style="width: 100%; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; background: white; padding: 20px;">
+                    <h5 style="padding-bottom: 20px;">A. 답변</h5>
+                    <div th:text="${qna.qnaAnswer}"></div>
+                </div>
+                <div class="display: flex;">
+                    <button class="button">저장하기</button>
+                    <button class="button">삭제하기</button>
+                </div>
             </div>
-        </div>
+        </form>
         <div id="footer-wrap">
             <div class="footer-container">(가산교육장) 서울특별시 금천구 가산디지털1로 70 호서대벤처타워 2층 <br>
                                            Tel. 123-456-789 | E-mail. kosmo@naver.com
             </div>
         </div>
     </div>
-
-    <script th:src="@{/assets/js/jquery.min.js}"></script>
-    <script th:src="@{/assets/js/qnalist.js}"></script>
-
-<script>
-
-$("table tr a").on("click", (e)=>{
-    let $e = $(e.target);
-
-    let no = $e.parents("tr").find("input[type=hidden]").val();
-
-    location.href = "/qna/" + no;
-
-    e.preventDefault();
-});
-
-</script>
-
+    <!-- <script>
+        function submit() {
+            alert("저장되었습니다.");
+            return window.location.href = "./qna.html";
+        }
+        async function submit2() {
+            if(confirm("게시물을 삭제하시겠습니까 ?")) {
+                alert("게시물이 삭제되었습니다.");
+                return window.location.href = "./qna.html";
+            }
+        }
+    </script> -->
 </body>
 </html>
+<!-- 저장하기 삭제하기 버튼 가운데로 옮기기 -->
