@@ -6,7 +6,4 @@ public interface UserService {
 
 	UserVo signup(UserVo user);
 
-	boolean login(String userId, String password);
 }
-
-	

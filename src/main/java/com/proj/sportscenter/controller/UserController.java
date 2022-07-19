@@ -42,16 +42,6 @@ public class UserController {
 		UserVo resultUser = userService.signup(user);
 		log.debug("[resultUser]=[{}]", resultUser);
 		
-		return "signup-done";
-	}
-	
-	@PostMapping(value = "/login")
-	public String login(String userId, String password) throws Exception{	
-		
-		boolean loginUser = userService.login(userId, password);
-		if(loginUser) {
-			return "login-done";
-		}
-		return "login";
+		return "signup";
 	}
 }
