@@ -5,9 +5,9 @@
 	<insert id="insertQna" parameterType="QnaVo">
 	 <!-- 타이틀 넣기 -->
 		INSERT INTO 
-			TB_QNA(QNA_QUESTION, QNA_ANSWER, QNA_WRITER, QNA_TITLE)
+			TB_QNA(QNA_QUESTION, QNA_WRITER, QNA_TITLE)
 		VALUES
-			(#{qnaQuestion}, #{qnaAnswer}, #{qnaWriter}, #{qnaTitle})
+			(#{qnaQuestion}, #{qnaWriter}, #{qnaTitle})
 	</insert>
 	
 	<update id="updateAnswer" parameterType="QnaVo">
@@ -33,17 +33,27 @@
 
 	<select id="selectQnaByNo" parameterType="long" resultType="QnaVo">
 		SELECT 
-			QNA_NO, QNA_TITLE, QNA_WRITER, REG_DATE, QNA_ANSWER,  QNA_QUESTION
+			QNA_NO, QNA_TITLE, QNA_WRITER, REG_DATE, QNA_QUESTION
 		FROM TB_QNA
 		where
 			qna_no = #{no}
 	</select>
 
-
+<!-- QnaList불러오기 -->
 	<select id="listQna" parameterType="string" resultType="QnaVo">
 		SELECT 
 			QNA_NO, QNA_TITLE, QNA_WRITER, REG_DATE
 		FROM TB_QNA
 		ORDER BY REG_DATE DESC
 	</select>
+	
+	
+	<!-- 게시글 삭제하기 -->
+	<delete id="deleteQna" parameterType="long">
+		DELETE
+			FROM TB_QNA
+		WHERE
+			qna_no = #{no}
+	</delete>
+	
 </mapper>

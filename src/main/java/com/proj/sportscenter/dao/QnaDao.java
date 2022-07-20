@@ -14,4 +14,7 @@ public interface QnaDao {
 
 	QnaVo selectQnaByNo(long no);
 
+	public QnaVo qnaDelete(long qnaNo);
+	
+
 }

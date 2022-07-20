@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>프로그램 신청</title>
-    <link rel="stylesheet" href="./assets/css/public.css">
+    <link rel="stylesheet" th:href="@{/assets/css/public.css}">
     <style>
         html, body {margin: 0; padding: 0;}
         #wrap {width: 100%; color: #fff; font-size: 30px; text-align: center;}
         #header-wrap {width: 100%; background-color: rgb(40, 40, 40); }
         #banner-wrap {width: 100%; background-color: rgba(0, 0, 0, 0.774);} /* rgba:색깔, 투명도 조절 */
-        #content-wrap { margin: 0 auto;width: 800px; display: flex; flex-direction: column; align-items: flex-start; padding: 120px 0;color: black;}
+        #content-wrap { margin: 0 auto; width: 1000px; background-color: rgba(245, 245, 245, 0.301); display: flex; flex-direction: column; align-items: flex-start; padding: 120px 0;color: black;}
         #footer-wrap {width: 100%; background-color: rgb(40, 40, 40);}
 
         .header-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 100px; font-size: 15px;  font-weight: bold;}
@@ -18,7 +18,7 @@
                            background-image: url(/assets/image/main.jpg); background-size: cover;
                            font-size: 50px; font-weight: bold; letter-spacing : 5px;}
         .content-container {width: 1200px; margin: 0 auto; height: 700px; line-height: 500px;
-                            background-color: rgb(245, 245, 245); overflow:hidden; height:auto;
+                             overflow:hidden; height:auto;
                         }
         .footer-container {width: 1200px; margin: 0 auto; height: 100px; line-height: 200%; color: rgb(192, 192, 192); font-size: 15px; text-align: left;}
         ul li {list-style: none; display: inline; margin-left: 20px;cursor: pointer;}
@@ -42,6 +42,7 @@
             font-size: 18px;
         }
         table {
+            margin: 0 50px;
             font-size: 18px;
             white-space: nowrap;
             border: 1px solid rgb(50, 50, 50);
@@ -52,6 +53,7 @@
             border: 1px solid rgb(50, 50, 50);
             padding: 20px;
         }
+        h3 { margin: 20px 50px;}
     </style>
 </head>
 <body>
@@ -59,15 +61,13 @@
         <div id="header-wrap">
             <div class="header-container">
                 <ul class="tab1">
-                    <li onclick="javascript: window.location.href = './main.html';">홈</li>
-                    <li onclick="javascript: window.location.href = './intro.html';">프로그램 소개</li>
-                    <li onclick="javascript: window.location.href = './notice.html';">공지사항</li>
-                    <li onclick="javascript: window.location.href = './qna.html';">Q&A</li>
-                    <li onclick="javascript: window.location.href = './review.html';">후기</li>
+                    <li><a href="/main">홈</a></li>
+                    <li><a href="/intro">프로그램 소개</a></li>
+                    <li><a href="/qna">Q&A</a></li>
                   </ul>
                   <ul class="tab2">
-                    <li onclick="javascript: window.location.href = './signin.html';">로그인</li>
-                    <li onclick="javascript: window.location.href = './signup.html';">회원가입</li>
+                    <li> <a href="/login">로그인</a></li>
+                    <li><a href="/signup">회원가입</a></li>
                   </ul>
             </div>
         </div>
@@ -77,36 +77,10 @@
         <div id="content-wrap">
             <div style="width: 100%; display: flex; flex-direction: column; gap: 10px;">
                 <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <h5>원하시는 프로그램을 선택해주세요.</h5>
-                </div>
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <label>
-                        <input type="radio" name="qwer">
-                        <span>수영</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="qwer">
-                        <span>휘트니스</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="qwer">
-                        <span>필라테스</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="qwer">
-                        <span>요가</span>
-                    </label>
-                </div>
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <h5>원하시는 시간을 선택해주세요.</h5>
+                    <h3>수영</h3>
                 </div>
                 <table>
                     <tr>
-                        <td style="border-right: none;">평일<br>(주말 및 공휴일 휴관)</td>
-                        <td style="border-left: none;" colspan="3">자유수영 안내</td>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" name="zxc"></td>
                         <td>A</td>
                         <td>06:00 ~ 08:00</td>
                         <td rowspan="4">
@@ -117,22 +91,89 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><input type="radio" name="zxc"></td>
                         <td>B</td>
                         <td>09:00 ~ 10:00</td>
                     </tr>
                     <tr>
-                        <td><input type="radio" name="zxc"></td>
                         <td>C</td>
                         <td>15:00 ~ 17:00</td>
                     </tr>
                     <tr>
-                        <td><input type="radio" name="zxc"></td>
                         <td>D</td>
                         <td>18:00 ~ 20:00</td>
                     </tr>
                 </table>
-                <button onclick="login(event)" class="button" style="margin: auto;">신청하기</button>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h3>휘트니스</h3>
+                </div>
+                <table>
+                    <tr>
+                        <td>평 일</td>
+                        <td>07:00 ~ 22:00</td>
+                    </tr>
+                    <tr>
+                        <td>주 말<br>(공휴일 휴무)</td>
+                        <td>09:00 ~ 18:00</td>
+                    </tr>
+                </table>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h3>필라테스</h3>
+                </div>
+                <table>
+                    <tr>
+                        <td>A</td>
+                        <td>발레 필라테스</td>
+                        <td>월, 수, 금</td>
+                        <td>09:00 ~ 10:00<br>10:00 ~ 11:00</td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td>체형교정</td>
+                        <td>화, 목</td>
+                        <td>09:00 ~ 10:00<br>10:00 ~ 11:00</td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <td>다이어트</td>
+                        <td>월, 수, 금</td>
+                        <td>18:00 ~ 19:00<br>19:00 ~ 20:00<br>20:00 ~ 21:00</td>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td>코어 밸런스</td>
+                        <td>화, 목</td>
+                        <td>18:00 ~ 19:00<br>19:00 ~ 20:00<br>20:00 ~ 21:00</td>
+                    </tr>
+                </table>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h3>요가</h3>
+                </div>
+                <table>
+                    <tr>
+                        <td>A</td>
+                        <td>HEALING<br>AROMA</td>
+                        <td>월, 화, 수, 목, 금</td>
+                        <td>07:00 ~ 08:00<br>18:00 ~ 19:00<br>20:00 ~ 21:00</td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td>VINYASA</td>
+                        <td>월, 화, 수, 목, 금</td>
+                        <td>06:00 ~ 07:00<br>19:00 ~ 20:00<br>21:00 ~ 22:00</td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <td>POWER</td>
+                        <td>월, 수, 금</td>
+                        <td>07:00 ~ 08:00<br>18:00 ~ 19:00<br>20:00 ~ 21:00</td>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td>YIN YOGA</td>
+                        <td>화, 목</td>
+                        <td>06:00 ~ 07:00<br>19:00 ~ 20:00<br>21:00 ~ 22:00</td>
+                    </tr>
+                </table>
             </div>
         </div>
         <div id="footer-wrap">
@@ -142,12 +183,11 @@
         </div>
     </div>
     <script>
-        function login(e) {
+       /* function login(e) {
             alert("신청이 완료되었습니다.\n취소는 마이페이지를 이용해주세요.");
-            return window.location.href = "./main.html";
-        }
+            return window.location.href = "/main";
+        }*/
     </script>
 </body>
 </html>
-<!-- 프로그램 선택 시 해당하는 프로그램의 스케줄 표가 나오도록 생성
-     하나만 선택하고 신청하기 버튼을 누른 경우 신청할 수 없도록 설정 -->
+<!-- 완료 -->

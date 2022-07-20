@@ -39,34 +39,25 @@
         <div id="header-wrap">
             <div class="header-container">
                 <ul class="tab1">
-                    <li><a th:href="@{/signin}">홈</a></li>
-                    <li><a href="/signin">프로그램 소개</a></li>
-                    <li><a href="/signin">공지사항</a></li>
-                    <li><a href="/qna">Q&A</a></li>
-                    <li><a href="/review">후기</a></li>
+                    <li><a href="/main">홈</a></li>
+                    <li><a href="/intro">프로그램 소개</a></li>
+                    <li><a href="/qnalist">Q&A</a></li>
                   </ul>
                   <ul class="tab2">
-                    <li onclick="javascript: window.location.href = './signin.html';">로그인</li>
-                    <li onclick="javascript: window.location.href = './signup.html';">회원가입</li>
+                    <li> <a href="/login">로그인</a></li>
+                    <li><a href="/signup">회원가입</a></li>
                   </ul>
             </div>
         </div>
-
-        <div th:if="${session.user != null}">
-            <div>ID : <span th:text="${session.user.userId}"></span></div>
-            <div th:text="${session.user.admin}">  </div>
-        </div>
-
         <div id="banner-wrap">
             <div class="banner-container">로그인</div>
         </div>
         <div id="content-wrap">
             <form th:action="@{/login}" method="POST">
-                <input class="input" type="text" placeholder="아이디" name="userId">
-                <input class="input" type="password" placeholder="비밀번호" name="password">
-                <button class="button">로그인</button>
-            </form>
-
+            <input class="input" type="text" placeholder="아이디" name="userId">
+            <input class="input" type="password" placeholder="비밀번호" name="password">
+            <button class="button" onclick="login(event)">로그인</button>
+        </form>
         </div>
         <div id="footer-wrap">
             <div class="footer-container">(가산교육장) 서울특별시 금천구 가산디지털1로 70 호서대벤처타워 2층 <br>
@@ -79,7 +70,7 @@
             const [text, pw] = [...document.getElementsByClassName("input")];
             if(text.value.length <= 0) return alert("아이디를 입력해주세요.");
             if(pw.value.length <= 0) return alert("비밀번호를 입력해주세요.");
-            return window.location.href = "./main.html";
+            return window.location.href = "/main";
         }
     </script>
 </body>

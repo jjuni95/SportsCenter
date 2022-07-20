@@ -12,4 +12,9 @@ public interface QnaService {
 
 	QnaVo getQnaByNo(long no);
 
+	public void qnaDelete(long qnaNo);
+	
+	//게시판 목록(페이징 적용)
+//	public List<QnaVo> pagingQna(Criteria cri);
+
 }

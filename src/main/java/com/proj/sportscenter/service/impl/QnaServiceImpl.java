@@ -45,4 +45,12 @@ public class QnaServiceImpl implements QnaService {
 		return qnadao.selectQnaByNo(no);
 	}
 
+	@Override
+	public void qnaDelete(long qnaNo) {
+		qnadao.qnaDelete(qnaNo);
+	}
+
+
+
+
 }

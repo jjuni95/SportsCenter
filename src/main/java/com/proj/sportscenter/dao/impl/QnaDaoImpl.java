@@ -36,4 +36,10 @@ public class QnaDaoImpl implements QnaDao {
 	public QnaVo selectQnaByNo(long no) {
 		return ssl.selectOne("qna.selectQnaByNo", no);
 	}
+
+	@Override
+	public QnaVo qnaDelete(long qnaNo) {
+		return ssl.selectOne("qna.deleteQna",qnaNo);
+	}
+
 }

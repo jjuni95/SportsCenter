@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>떙떙 스포츠센터</title>
     <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" th:href="@{/assets/css/public.css}">
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1c3701ed9ff347c6b09f7769de395c9c"></script>
     <style>
         * {margin: 0; padding: 0;}
@@ -24,6 +25,7 @@
         ul li {list-style: none; display: inline; margin-left: 20px;cursor: pointer;}
         .tab1 {float: left; width: 30%; margin: 0}
         .tab2 {float: right; width: 20%; margin: 0}
+        .span1 {color: rgb(92, 87, 87); font-weight: 600; text-align: left;}
     </style>
 </head>
 <body>
@@ -31,15 +33,13 @@
         <div id="header-wrap">
             <div class="header-container">
                 <ul class="tab1">
-                    <li onclick="javascript: window.location.href = './main.html';">홈</li>
-                    <li onclick="javascript: window.location.href = './intro.html';">프로그램 소개</li>
-                    <li onclick="javascript: window.location.href = './notice.html';">공지사항</li>
-                    <li onclick="javascript: window.location.href = './qna.html';">Q&A</li>
-                    <li onclick="javascript: window.location.href = './review.html';">후기</li>
+                    <li><a href="/main">홈</a></li>
+                    <li><a href="/intro">프로그램 소개</a></li>
+                    <li><a href="/qnalist">Q&A</a></li>
                   </ul>
                   <ul class="tab2">
-                    <li onclick="javascript: window.location.href = './signin.html';">로그인</li>
-                    <li onclick="javascript: window.location.href = './signup.html';">회원가입</li>
+                    <li> <a href="/login">로그인</a></li>
+                    <li><a href="/signup">회원가입</a></li>
                   </ul>
             </div>
         </div>
@@ -47,12 +47,12 @@
             <div class="banner-container">떙떙 스포츠센터</div>
         </div>
         <div id="content-wrap">
-            <span style="color: black" style="text-align: left">오시는 길</span>
+            <span class="span1">오시는 길</span>
             <br>
             <div class="content-container">
-                <div style="width: 1200px; height: 600px" id="map"></div>
+                <div style="width: 850px; height: 500px; padding-left: 500px;" id="map"></div> <!--지도-->
             </div>
-            <button onclick="aclick()" style="position: absolute; top: 50%; right: 10%; transform: translateY(-50%); border: none; background: none; cursor: pointer;"><img width="60" src="./images/right-arrow.png"></button>
+            <button class="button" onclick="aclick()" style="position: absolute; top: 50%; right: 13%; transform: translateY(-50%); border: none; background: none; cursor: pointer;"><img width="40" src="./assets/image/right-arrow.png"></button>
         </div>
         <div id="footer-wrap">
             <div class="footer-container">(가산교육장) 서울특별시 금천구 가산디지털1로 70 호서대벤처타워 2층 <br>
@@ -81,22 +81,24 @@
     <script>
         function aclick() {
             document.getElementById("content-wrap").innerHTML = `
-                <h3 style="margin-bottom: 60px;">자주 묻는 질문</h3>
+                <h3 style="margin-bottom: 60px; color: rgb(92, 87, 87); font-weight: 600;" font-size : 25;>자주 묻는 질문</h3>
                 <div style="display: flex; gap: 200px;">
-                    <div style="font-size: 18px; display: flex; flex-direction: column; gap: 10px;">
-                        <div class="hello" style="padding: 24px 70px; background: white;">
-                            질문 입니다.
+                    <div style="font-size: 16px; display: flex; flex-direction: column; gap: 10px;">
+                        <div class="hello" style="padding: 24px 40px; background: white;">
+                            프로그램 시간은 어떻게 되나요?
                         </div>
-                        <div class="qwer" style="display: none; padding: 24px 70px; background: white;">
-                            답변입니다.
+                        <div class="qwer" style="display: none; width : 600px; padding: 24px 70px; background: white;">
+                            각 종목별로 프로그램의 시간이 다릅니다. <br>
+                            프로그램 소개 페이지에서 프로그램 시간표를 확인해주세요.
                         </div>
                     </div>
                     <div style="font-size: 18px; display: flex; flex-direction: column; gap: 10px;">
                         <div class="hello" style="padding: 24px 70px; background: white;">
-                            질문 입니다.
+                            1:1 강습도 가능한가요?
                         </div>
                         <div class="qwer" style="display: none; padding: 24px 70px; background: white;">
-                            답변입니다.
+                            네. 가능합니다.<br>
+                            1:1 강습의 자세한 사항은 전화문의주세요.(02-1111-1111)
                         </div>
                     </div>
                 </div>

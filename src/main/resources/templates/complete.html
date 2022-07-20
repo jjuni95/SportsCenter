@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>회원가입 완료</title>
-    <link rel="stylesheet" href="./assets/css/public.css">
+    <link rel="stylesheet" th:href="@{/assets/css/public.css}">
     <style>
         html, body {margin: 0; padding: 0;}
         #wrap {width: 100%; color: #fff; font-size: 30px; text-align: center;}
@@ -41,15 +41,13 @@
         <div id="header-wrap">
             <div class="header-container">
                 <ul class="tab1">
-                    <li onclick="javascript: window.location.href = './main.html';">홈</li>
-                    <li onclick="javascript: window.location.href = './intro.html';">프로그램 소개</li>
-                    <li onclick="javascript: window.location.href = './notice.html';">공지사항</li>
-                    <li onclick="javascript: window.location.href = './qna.html';">Q&A</li>
-                    <li onclick="javascript: window.location.href = './review.html';">후기</li>
+                    <li><a href="/main">홈</a></li>
+                    <li><a href="/intro">프로그램 소개</a></li>
+                    <li><a href="/qna">Q&A</a></li>
                   </ul>
                   <ul class="tab2">
-                    <li onclick="javascript: window.location.href = './signin.html';">로그인</li>
-                    <li onclick="javascript: window.location.href = './signup.html';">회원가입</li>
+                    <li> <a href="/login">로그인</a></li>
+                    <li><a href="/signup">회원가입</a></li>
                   </ul>
             </div>
         </div>
@@ -59,8 +57,8 @@
         <div id="content-wrap">
             <h1>환영합니다. 양지원 회원님 !<br>회원가입이 완료되었습니다.</h1>
             <div style="display: flex; gap: 20px;">
-                <button class="button" onclick="javascript: window.location.href = './main.html';">홈</button>
-                <button class="button" onclick="javascript: window.location.href = './signin.html';">로그인</button>
+                <button class="button" onclick="javascript: window.location.href = '/main';">홈</button>
+                <button class="button" onclick="javascript: window.location.href = '/login';">로그인</button>
             </div>
         </div>
         <div id="footer-wrap">
@@ -71,8 +69,8 @@
     </div>
     <script>
         function login(e) {
-            alert("환영합니다. 양지우 회원님 !\n회원가입이 완료되었습니다.");
-            return window.location.href = "./main.html";
+            alert("환영합니다. th:text="${session.user.userName}" !\n회원가입이 완료되었습니다.");
+            return window.location.href = "/main";
         }
     </script>
 </body>

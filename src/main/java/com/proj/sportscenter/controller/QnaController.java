@@ -5,11 +5,15 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.proj.sportscenter.service.QnaService;
@@ -29,6 +33,7 @@ public class QnaController {
 	@GetMapping(value = "/qnalist")
 	public String viewQnaList(Model model) throws Exception {
 		model.addAttribute("list", qnaService.list());
+		
 		return "qnalist";
 	}
 	
@@ -37,6 +42,7 @@ public class QnaController {
 		return "postqna"; // qna쓰는곳
 	}
 
+	
 	@GetMapping(value = "/qna/{no}")
 	public ModelAndView writeQna(@PathVariable(value = "no") long no, ModelAndView mav) throws Exception {
 		
@@ -74,5 +80,15 @@ public class QnaController {
 
 		return "redirect:/qnalist";
 	}
+	
+	//게시글 삭제
+	@DeleteMapping("/qnalist/{qnaNo}")
+	public String deleteQna(@PathVariable("qnaNo") Long qnaNo) {
+		qnaService.qnaDelete(qnaNo);
+		
+		return "redirect:/qnalist";
+	}
+
+	
 
 }
